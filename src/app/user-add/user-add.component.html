@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <app-user-form
+      [h1Text]="'Añadir usuario'"
+      [user]="user"
+      [submitText]="'Añadir'"
+      (onSubmit)="save($event)"
+    ></app-user-form>
+  </div>
+</div>
