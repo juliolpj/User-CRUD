@@ -24,4 +24,8 @@ export class UserCrudComponent implements OnInit {
       this.users = this.users.filter( u => user.id !== u.id);
     });
   }
+
+  filtrarIsActive() {
+    this.users = this.users.filter( u => u.isActive === false);
+  }
 }
