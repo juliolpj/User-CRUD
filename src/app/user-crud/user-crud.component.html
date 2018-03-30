@@ -2,11 +2,23 @@
   <a routerLink="/users/add" class="btn btn-btn-xs btn-info btn-block">
     Añadir usuario
   </a>
+      
   <table class="table">
     <thead>
       <tr>
         <th>ID</th>
-        <th>ACTIVE</th>
+        <th >
+            <div class="btn-group" role="group">
+                <button id="btnFiltroIsActive" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{filtroIsActive}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnFiltroIsActive">
+                  <a class="dropdown-item" (click)="filtrarIsActive('Todos')">Todos</a>
+                  <a class="dropdown-item" (click)="filtrarIsActive('Activos')">Activos</a>
+                  <a class="dropdown-item" (click)="filtrarIsActive('Inactivos')">Inactivos</a>
+                </div>
+              </div>
+          </th>
         <th>NAME</th>
         <th>EMAIL</th>
         <th>ACTIONS</th>
