@@ -9,7 +9,7 @@ import { User } from '../user';
   styleUrls: ['./user-crud.component.css']
 })
 export class UserCrudComponent implements OnInit {
-
+  public filtroIsActive: string = "Todos";
   public users: User[];
   constructor(private userService: UsersService) { }
 
@@ -25,7 +25,20 @@ export class UserCrudComponent implements OnInit {
     });
   }
 
-  filtrarIsActive() {
-    this.users = this.users.filter( u => u.isActive === false);
+  filtrarIsActive(filtro:string) {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+      if (filtro == 'Todos') {
+        this.users = this.users;
+      }
+      if (filtro == 'Activos') {
+        this.users = this.users.filter( u => u.isActive === true);
+      }
+      if (filtro == 'Inactivos') {
+        this.users = this.users.filter( u => u.isActive === false);
+      }      
+    });
+    
+    this.filtroIsActive = filtro;
   }
 }
